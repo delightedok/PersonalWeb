@@ -2,7 +2,7 @@ package com.tamgitsun.test;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.portlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -17,7 +17,7 @@ public class ControllerTest {
 	@RequestMapping("/ControllerTest/index2.do")
 	public ModelAndView index2(){
 		System.out.println("in ControllerTest/index2");
-		return new ModelAndView(new RedirectView("../test/index.jsp"));  // 采用重定向方式跳转页面
+		return new ModelAndView(new RedirectView("../ControllerTest/index.do"));  // 采用重定向方式跳转页面
 	}
 	
 	@RequestMapping("/ControllerTest/index3.do")
