@@ -18,6 +18,22 @@
     <!-- 设置使用注解的类所在的jar包 -->
     <context:component-scan base-package="com.tamgitsun"></context:component-scan>
     
+    <!-- 设置jsp下的全局变量 -->
+    <bean id="beanConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="location">
+    		<value>/WEB-INF/config/config.properties</value>
+    	</property>
+    </bean>
+    <bean id="myConfig" class="com.tamgitsun.configuration.SysConfig">
+    	<property name="ctxPath" value="${ctxPath}"></property>
+    </bean>
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/**"/>
+    		<bean class="com.tamgitsun.interceptors.BaseInterceptor"></bean>
+    	</mvc:interceptor>
+    </mvc:interceptors>
+    
     <!-- 完成请求和注解POJO的映射 -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
     

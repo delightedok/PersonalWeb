@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="${ctxPath}/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script src="${ctxPath}/plugins/js/bootstrap.min.js"></script>
 <title>TEST INDEX</title>
 </head>
 <body>
-hello
+${ctxPath}
 </body>
 </html>
