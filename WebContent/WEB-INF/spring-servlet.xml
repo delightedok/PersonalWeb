@@ -26,6 +26,7 @@
     </bean>
     <bean id="myConfig" class="com.tamgitsun.configuration.SysConfig">
     	<property name="ctxPath" value="${ctxPath}"></property>
+    	<property name="root" value="${root}"></property>
     </bean>
     <mvc:interceptors>
     	<mvc:interceptor>

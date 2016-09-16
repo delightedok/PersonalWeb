@@ -10,7 +10,7 @@ public class IndexController extends BaseController{
 	
 	@RequestMapping("index.do")
 	public ModelAndView index(){
-		return new ModelAndView("test/index");
+		return new ModelAndView("index/index");
 	}
 
 }
