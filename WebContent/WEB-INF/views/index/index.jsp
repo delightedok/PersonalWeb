@@ -7,6 +7,7 @@
 <script src="${ctxPath}/plugins/js/jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="${ctxPath}/plugins/bootstrap/css/bootstrap.min.css">
 <script src="${ctxPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="${ctxPath}/plugins/js/jquery-qrcode-master/jquery.qrcode.min.js"></script>
 <title>Johnny Tamgitsun</title>
 </head>
 <body>
@@ -25,8 +26,8 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">About Me <span class="sr-only">(current)</span></a></li>
-        <li class="dropdown">
+        <li class="headerOption"><a href="#">About Me <span class="sr-only">(current)</span></a></li>
+        <li class="dropdown headerOption headerDropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Program <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
@@ -38,7 +39,7 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        <li><a href="#">Suggestion</a></li>
+        <li class="headerOption"><a href="#">Suggestion</a></li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -47,15 +48,11 @@
         <button type="submit" class="btn btn-default">Search</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+        <li class="headerOption"><a href="${ctxPath}/signIn/index.do">SignIn/SignUp</a></li>
+        <li class="dropdown headerOption headerDropdown">
+          <a href="#" class="dropdown-toggle" target="_blank" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Share <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="width: 134px; min-width: 50px; padding: 2px;">
+          	<li><div id="shareQrCode"></div></li>
           </ul>
         </li>
       </ul>
@@ -74,11 +71,11 @@
 <div class="main col-md-6">
 	<div class="col-md-12" style="text-align: center;"><font size="5"><strong>LIVES</strong></font></div>
 	<div class="col-md-12" style="padding: 10px;">
-		<div style="border: 1px #fff solid; height: 500px; overflow: auto;">
+		<div style="height: 500px; overflow: auto;">
 			<div class="imagesContent" style="text-align: center;">
 				<%for(int i = 0; i < 16; i++){ %>
 				<!-- <div> -->
-					<div class="col-md-3" style="width: 120px; height: 120px; background-color: grey; margin-bottom: 14px; margin-left: 14px;"></div>
+					<div class="col-md-3" style="width: 120px; height: 120px; background-color: grey;margin-top: 7px; margin-bottom: 7px; margin-left: 14px;"></div>
 				<!-- /div> -->
 				<%} %>
 			</div>
@@ -86,20 +83,35 @@
 	</div>
 </div>
 <div class="foot col-md-12">
-	<div class="col-md-3">Contact me</div>
-	<div class="col-md-3"><a href="https://github.com/delightedok?tab=repositories" target="_blank">GitHub</a></div>
-	<div class="col-md-3"><a href="http://weibo.com/u/2508696981/home" target="_blank">Sina Weibo</a></div>
-	<div class="col-md-3">E-mail&nbsp;&nbsp;iamdajieshen@gmail.com</div>
+	<div class="col-md-1"></div>
+	<div class="col-md-1">Contact me</div>
+	<div class="col-md-2">
+		<ul style="list-style: none;">
+			<li><a href="https://github.com/delightedok?tab=repositories" target="_blank">GitHub</a></li>
+			<li><a href="http://weibo.com/u/2508696981/home" target="_blank">Sina Weibo</a></li>
+		</ul>
+	</div>
+	<div class="col-md-3">E-mail:&nbsp;&nbsp;iamdajieshen@gmail.com</div>
 </div>
 </body>
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$("li").hover(function(){
+	$(".headerOption").hover(function(){
 		$(this).addClass("active");
 	}, function(){
 		$(this).removeClass("active");
+	});
+	$(".headerDropdown").hover(function(){
+		$(this).addClass("open");
+	}, function(){
+		$(this).removeClass("open");
 	})
+	$("#shareQrCode").qrcode({
+		width: 128,
+		height: 128,
+		text: '${ctxPath}'
+	});
 });
 </script>
 </html>
