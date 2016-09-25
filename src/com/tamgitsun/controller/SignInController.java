@@ -29,8 +29,8 @@ public class SignInController extends BaseController{
 	}
 	
 	@RequestMapping("/signUp.do")
-	public void signup(){
-		
+	public ModelAndView signup(){
+		return new ModelAndView("signInOrSignUp/signUp");
 	}
 	
 	@RequestMapping("/forgetPassword.do")

@@ -7,7 +7,7 @@
 <script src="${ctxPath}/plugins/js/jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="${ctxPath}/plugins/bootstrap/css/bootstrap.min.css">
 <script src="${ctxPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
-<title>SignIn or SignUp</title>
+<title>SignIn</title>
 </head>
 <body style="text-align: center; padding: 10px;">
 	<img width="200px" src="${ctxPath}/resources/img/LOGO_black.png">
